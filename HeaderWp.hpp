@@ -24,7 +24,7 @@ protected:
     virtual void analogPower(uint8_t value) = 0;
     virtual void closeObj(void) = 0;
 
-    bool getState() const { return _pump_.state; }
+    bool getState(void) const { return _pump_.state; }
 };
 
 inline namespace ScopeInternal {
