@@ -25,6 +25,11 @@ void Bombs::analogPower(uint8_t value) {
     analogWrite(_pump_.pin, power);
 }
 
+void Bombs::closeObj(void) {
+    pinMode(_pump_.pin, INPUT);
+    digitalWrite(_pump_.pin, LOW);
+}
+
 Bombs& Bombs::operator+=(uint8_t&& value) {
     power = (power + (value & 0xFF)) & 0xFF;
     analogWrite(_pump_.pin, power);
