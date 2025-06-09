@@ -22,6 +22,8 @@ protected:
 
     virtual void swapState(bool toChange = 0) = 0;
     virtual void analogPower(uint8_t value) = 0;
+    virtual void closeObj(void) = 0;
+
     bool getState() const { return _pump_.state; }
 };
 
@@ -35,8 +37,10 @@ inline namespace ScopeInternal {
         friend class __Base__;
 
         explicit Bombs(uint8_t pin, bool state, uint8_t powerLevel = 0);
+        
         void swapState(bool toChange = 0x00) override;
         void analogPower(uint8_t value = 0x00) override;
+        void closeObj(void) override;
 
         Bombs& operator+=(uint8_t&& value = 0x00);
         Bombs& operator-=(uint8_t&& value = 0x00);
@@ -48,7 +52,7 @@ inline namespace ScopeInternal {
 
         ~Bombs(void);
     };
-} // namespace ScopeInternal
+  } // namespace ScopeInternal
 } // namespace cpump_Lib
 
 #endif // CPUMP_LIB_H
