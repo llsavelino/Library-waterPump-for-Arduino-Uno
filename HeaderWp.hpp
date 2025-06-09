@@ -1,3 +1,4 @@
+#pragma once
 #ifndef CPUMP_LIB_H
 #define CPUMP_LIB_H
 
